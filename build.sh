@@ -1,1 +1,1 @@
-docker build -t gcaferra/helloworldcore:latest .
+docker build -t adunicorn/helloworldcore:latest .

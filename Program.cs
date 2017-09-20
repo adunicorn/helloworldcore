@@ -14,13 +14,14 @@ namespace HelloWorld
     {
         public static void Main(string[] args)
         {
-            BuildWebHost(args).Run();
-        }
-
-        public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
+            var host = WebHost.CreateDefaultBuilder(args)
+                .UseUrls("http://0.0.0.0:5000")
+                .UseContentRoot(Directory.GetCurrentDirectory())
+                .UseIISIntegration()
                 .UseStartup<Startup>()
-                .UseUrls("http://localhost:5000")
                 .Build();
+
+            host.Run();
+        }
     }
 }
