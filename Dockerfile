@@ -10,12 +10,13 @@ RUN dotnet restore
 
 ## copy everything else and build
 COPY . ./
-RUN dotnet publish -f netcoreapp2.0 -c Release -r centos-x64 --self-contained true /p:PublishWithAspNetCoreTargetManifest=false -o out
+RUN dotnet publish -f netcoreapp2.0 -c Release -r debian-x64 --self-contained true /p:PublishWithAspNetCoreTargetManifest=false -o out
 
 
 
 # Build runtime image
-FROM microsoft/aspnetcore-build:2.0
+#FROM microsoft/aspnetcore-build:2.0
+FROM microsoft/aspnetcore
 #FROM healthforge/s2i-dotnetcore11
 #FROM centos
 
